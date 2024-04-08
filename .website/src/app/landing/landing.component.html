@@ -1,0 +1,53 @@
+<div class="bg"></div>
+<div class="logo">
+  <div class="img-cont">
+    <img [ngSrc]="'/assets/img/logo_white.svg'" width="512" height="512" />
+  </div>
+</div>
+<div class="main">
+  <div class="title">Obelisk</div>
+  <div class="subtitle">
+    The high performance <br />data-in/data-out<br />
+    platform
+  </div>
+</div>
+<div class="sections">
+  <div class="s1">
+    @for(feat of features; track feat.title) {
+    <div class="feature">
+      <div class="title">{{ feat.title }}</div>
+      <div class="icon">
+        <img [src]="'/assets/img/' + feat.logo" width="64" height="64" />
+      </div>
+      <div class="description">{{ feat.description }}</div>
+    </div>
+    }
+  </div>
+  <div class="s2">
+    @for(feat of features2; track feat.title) {
+    <div class="feature">
+      <div class="title">{{ feat.title }}</div>
+      <div class="icon">
+        <img [src]="'/assets/img/' + feat.logo" width="64" height="64" />
+      </div>
+      <div class="description">{{ feat.description }}</div>
+    </div>
+    }
+  </div>
+
+  <!-- <div class="s3">
+    <h1>Section 3</h1>
+  </div> -->
+  <div class="footer">
+    @for(ref of references; track ref.name) {
+    <div class="reference" (click)="linkTo(ref.link)">
+      <div class="icon" [class.padded]="ref.padded">
+        <img [src]="'/assets/img/' + ref.icon" />
+      </div>
+      @if (ref.name) {
+      <div class="name">{{ ref.name }}</div>
+      }
+    </div>
+    }
+  </div>
+</div>
