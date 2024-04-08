@@ -79,7 +79,7 @@ export class LandingComponent {
       name: null,
       icon: 'logo_imec_sm.png',
       padded: true,
-      link: 'https://imec.be',
+      link: 'https://www.imec.be',
     },
   ];
 

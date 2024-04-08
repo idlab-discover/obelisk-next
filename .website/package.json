@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "ng build --output-path ../docs --base-href /obelisk-next/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:obelisk-next": "node dist/obelisk-next/server/server.mjs"
