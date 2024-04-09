@@ -39,15 +39,23 @@
     <h1>Section 3</h1>
   </div> -->
   <div class="footer">
-    @for(ref of references; track ref.name) {
-    <div class="reference" (click)="linkTo(ref.link)">
-      <div class="icon" [class.padded]="ref.padded">
-        <img [src]="'assets/img/' + ref.icon" />
+
+    <div class="links">
+      <a class="link" routerLink="/materials">Materials</a>
+      <a class="link" href="https://github.com/idlab-discover/obelisk/issues" target="_blank">Issues</a>
+      <a class="link" href="https://obelisk.ilabt.imec.be" target="_blank">Obelisk v3 (legacy)</a>
+    </div>
+    <div class="references">
+      @for(ref of references; track ref.name) {
+      <div class="reference" (click)="linkTo(ref.link)">
+        <div class="icon" [class.padded]="ref.padded">
+          <img [src]="'assets/img/' + ref.icon" />
+        </div>
+        @if (ref.name) {
+        <div class="name">{{ ref.name }}</div>
+        }
       </div>
-      @if (ref.name) {
-      <div class="name">{{ ref.name }}</div>
       }
     </div>
-    }
   </div>
 </div>
