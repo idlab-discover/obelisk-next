@@ -19,7 +19,7 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-    - run: cd .website
+    - working-directory: .website
     - run: npm ci
     - run: npm run build:gh-pages
     - run: rm -r ../docs/server
