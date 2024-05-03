@@ -14,17 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-      working-directory: .website
     - name: Use Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build:gh-pages
-    - run: rm -r ../docs/server
-    - run: rm ../docs/3rdpartylicenses.txt
-    - run: rm ../docs/prerendered-routes.json
-    - run: mv -r ../docs/browser/* ../docs/
-    - run: cp ../docs/index.html ../docs/404.html
+    - run: cd .website && npm ci
+    - run: cd .website && npm run build:gh-pages
+    - run: rm -r docs/server
+    - run: rm docs/3rdpartylicenses.txt
+    - run: rm docs/prerendered-routes.json
+    - run: mv -r docs/browser/* docs/
+    - run: cp docs/index.html docs/404.html
 
