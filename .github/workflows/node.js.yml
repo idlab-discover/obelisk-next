@@ -19,11 +19,15 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-    - run: cd .website && npm ci
-    - run: cd .website && npm run build:gh-pages
-    - run: rm -r docs/server
-    - run: rm docs/3rdpartylicenses.txt
-    - run: rm docs/prerendered-routes.json
-    - run: mv -r docs/browser/* docs/
-    - run: cp docs/index.html docs/404.html
+        cache-dependency-path: '**/package-lock.json'
+    - run: npm ci
+      working-directory: ./.website
+    - run: npm run build:gh-pages
+      working-directory: ./.website
+    - run: rm -r server 3rdpartylicenses.txt prerendered-routes.json
+      working-directory: ./docs
+    - run: mv -r browser/* ./
+      working-directory: ./docs
+    - run: cp index.html 404.html
+      working-directory: ./docs
 
